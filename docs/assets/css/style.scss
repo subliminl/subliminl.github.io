@@ -1,0 +1,47 @@
+---
+---
+// my custom variables that Minima can use here
+$dm-background-color: #000122;
+$kickass-orange: #f7986c;
+
+@import
+  "minima/skins/{{ site.minima.skin | default: 'classic' }}",
+  "minima/initialize";
+
+// my custom CSS rules that override Minima's rules here
+
+.site-header {
+    border-top: 0;
+    border-bottom: 1px solid #4040aa8f;
+    background-color: #0b0b1f;
+}
+
+.dot {
+    color: $kickass-orange;
+}
+
+.at {
+    color: $kickass-orange;
+}
+
+.post-title {
+    color: white;
+    font-size: 2rem;
+}
+
+.post-link, .post-link:visited {
+    color: #8ea8c5;
+}
+
+.language-plaintext {
+    font-family: "Menlo", "Inconsolata", "Consolas", "Roboto Mono", "Ubuntu Mono", "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9375em;
+    border: none;
+    background: none;
+    color: #f7ab6c;
+    padding: 0;
+}
+
+.center {
+    text-align: center;
+}
