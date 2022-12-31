@@ -50,7 +50,27 @@ Now let’s go back to VS Code.
 5.	Now we need to add an extra step to zip the artifact. Insert the step between the npm install and upload like this:
 
 ```yml
-    - name: npm install, build, test
+    steps:
+        - uses: actions/checkout@v2
+
+        - name: Set up Node.js version
+            uses: actions/setup-node@v1
+            with:
+            node-version: '16.x'
+
+        - name: npm install, build, and test
+            run: |
+            npm install
+            npm run build --if-present
+        
+        - name: Zip artifact for deployment
+            run: zip release.zip ./* -r -q
+
+        - name: Upload artifact for deployment job
+            uses: actions/upload-artifact@v2
+            with:
+            name: node-app
+            path: release.zip
 ```
 
 The name is not important. The command says to zip all the files in the root directory (./*) into release.zip, silently (-q) and including subfolders (-r).
