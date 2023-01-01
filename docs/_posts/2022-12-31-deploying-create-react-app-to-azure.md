@@ -15,7 +15,7 @@ However, there are some issues.
 
 The script that Microsoft provides deploys the development build, not the production build.
 
-Not only are we uploading everything including `node_modules`, we're doing it one file at a time. This takes quite some time, and uses up precious Github storage.
+Not only are we uploading everything including `node_modules`, we're doing it one file at a time. This takes quite some time, and uses up unnecessary storage on both Github and Azure.
 
 What we really want to do is upload the contents of the `build` directory.
 So, I will configure Github actions to deploy just the production build using a zip file.
@@ -73,7 +73,7 @@ Now let’s go back to VS Code.
             path: release.zip
 ```
 
-The name is not important. The command says to zip all the files in the root directory (./*) into release.zip, silently (-q) and including subfolders (-r).
+The name is not important. The command says to `zip` all the files in the root directory `./*` into `release.zip`, silently `-q` and including subfolders `-r`.
 6.	Now in the “Upload artifact for deployment job” we change the path from . to release.zip.
  
 7.	Save your changes. 

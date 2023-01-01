@@ -10,6 +10,12 @@ $kickass-orange: #f7986c;
 
 // my custom CSS rules that override Minima's rules here
 
+code {
+    font-family: 'Consolas' !important;
+    font-weight: normal;
+    font-style: normal;
+}
+
 .site-header {
     border-top: 0;
     border-bottom: 1px solid #4040aa8f;
